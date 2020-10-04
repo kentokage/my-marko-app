@@ -1,0 +1,21 @@
+class {
+  onCreate() {
+    this.state = {
+      count: 0,
+      users: ["a", "b", "c", "d"]
+    };
+  }
+
+  increment() {
+    this.state.count++;
+    this.once("update", () => console.log("counter updated"));
+  }
+}
+
+<if(state.count)>
+  <div>This current count is ${state.count}</div>
+</if>
+<else>
+  <div>Click the button to increase count</div>
+</else>
+<button on-click("increment")>Click me!</button>

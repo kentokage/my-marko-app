@@ -9,6 +9,8 @@
   },
   "private": true,
   "dependencies": {
+    "@marko-tags/match-media": "^1.1.1",
+    "lodash": "^4.17.20",
     "marko": "^4.22.5"
   },
   "devDependencies": {

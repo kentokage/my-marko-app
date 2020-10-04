@@ -1,0 +1,35 @@
+import isEmpty from "lodash/isEmpty"
+
+static const USERS = ["a", "b", "c", "d", "e"];
+
+<!-- static const USERS = []; -->
+static function test() {
+  console.log("test");
+}
+
+<h1.hello>Hello ${input.name}</h1>
+<if(isEmpty(USERS))>
+  <div>USERS is empty</div>
+</if>
+<else>
+  <ul>
+    <for|user, idx| of=USERS>
+      <li key=idx>${idx}: ${user}</li>
+    </for>
+  </ul>
+</else>
+class {
+  onCreate() {
+    this.state = {
+      users: ["a", "b", "c", "d"]
+    };
+    test();
+  }
+}
+
+style {
+  .hello {
+    background-color: lightblue;
+    border: 1px solid green;
+  }
+}
