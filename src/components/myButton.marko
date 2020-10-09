@@ -1,7 +1,31 @@
-class {
-  doSomething() {
-    console.log("Hello");
+$ const cssBase = "myButton";
+style {
+  :host,
+  .myButton__container {
+    display: flex;
+    flex-direction: column;
   }
 }
 
-<button on-click("doSomething")>Click me!</button>
+class {
+  doSomething(e) {
+    console.log("Hello do something", e.target.innerHTML);
+    if (e.target.validity.valid) {
+      // this.emit not working
+      this.emit("doSomething", { name: "kenny 2" });
+    }
+  }
+}
+
+$ function someFunction(data) {
+  console.log("some function clicked", data.name);
+}
+<div class=`${cssBase}__container`>
+  <button on-click("doSomething")>
+    <!-- how to bind arguments for this?--> Click me for string matching method name called do something!
+  </button>
+  <button on-click(e => console.log("this button pressed", e.target.innerHTML))>
+    Click me anonymous function
+  </button>
+  <button on-click(someFunction, { name: "kenny" })>static some function</button>
+</div>

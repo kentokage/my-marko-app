@@ -2,19 +2,42 @@ import isEmpty from "lodash/isEmpty"
 
 static const USERS = ["a", "b", "c", "d", "e"];
 
+<!-- style.less not working -->
+style {
+  .hello {
+    background-color: lightblue;
+    border: 1px solid green;
+  }
+
+  .list {
+    background-color: salmon;
+
+    div {
+      background-color: red !important;
+    }
+  }
+
+  div {
+    background-color: purple;
+  }
+}
+
 <!-- static const USERS = []; -->
 static function test() {
   console.log("test");
 }
 
+<div>This is div content</div>
 <h1.hello>Hello ${input.name}</h1>
 <if(isEmpty(USERS))>
   <div>USERS is empty</div>
 </if>
 <else>
-  <ul>
+  <ul.list>
     <for|user, idx| of=USERS>
-      <li key=idx>${idx}: ${user}</li>
+      <li key=idx>
+        <div>${idx}: ${user}</div>
+      </li>
     </for>
   </ul>
 </else>
@@ -23,13 +46,6 @@ class {
     this.state = {
       users: ["a", "b", "c", "d"]
     };
-    test();
-  }
-}
-
-style {
-  .hello {
-    background-color: lightblue;
-    border: 1px solid green;
+    test(); // this works!
   }
 }
